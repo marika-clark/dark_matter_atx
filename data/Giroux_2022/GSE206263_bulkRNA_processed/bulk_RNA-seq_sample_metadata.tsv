@@ -1,0 +1,23 @@
+SampleID	Assay	Cohort	IgG_Negative_Day	IgG_Positive_Day
+0BF51C	bulk_RNA-seq	Moderate	0	7
+062CD8	bulk_RNA-seq	Healthy		
+77DA77	bulk_RNA-seq	Healthy		
+22CBD6	bulk_RNA-seq	Healthy		
+4F2EAD	bulk_RNA-seq	Healthy		
+E9CFE0	bulk_RNA-seq	Healthy		
+F8FF1A	bulk_RNA-seq	Healthy		
+56E219	bulk_RNA-seq	Healthy		
+450905	bulk_RNA-seq	Mild	0	14
+0B943B	bulk_RNA-seq	Mild	0	14
+7085CA	bulk_RNA-seq	Mild	0	14
+2AD75E	bulk_RNA-seq	Mild	0	14
+B85D75	bulk_RNA-seq	Moderate	0	7
+180E1A	bulk_RNA-seq	Moderate	0	7
+82CCF5	bulk_RNA-seq	Moderate	0	7
+1A9B20	bulk_RNA-seq	Mild	0	7
+BAAF62	bulk_RNA-seq	Mild	0	7
+75A2B6	bulk_RNA-seq	Mild	0	7
+DF309F	bulk_RNA-seq	Mild	0	7
+3F05F3	bulk_RNA-seq	Moderate	0	7
+40067F	bulk_RNA-seq	Moderate	0	21
+0E1F8E	bulk_RNA-seq	Moderate	0	7

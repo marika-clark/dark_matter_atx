@@ -1,7 +1,2 @@
 perturbation_data/
 __crisprbrain.sqlite
-bulk_RNA-seq_sample_metadata.tsv
-bulk_RNA-seq_all_counts.csv
-GSE193140_atac_counts_qval_0.05 2.txt
-GSE193141_rna_counts_011622 2.csv
-GSE193142_series_matrix (1).txt

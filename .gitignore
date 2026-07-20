@@ -1,2 +1,5 @@
 perturbation_data/
 __crisprbrain.sqlite
+
+# Secrets — never commit
+.env

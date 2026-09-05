@@ -30,6 +30,10 @@ hallucinated functions (e.g. no `sc.tl.enrichment`; use Squidpy
 - Begin any new task with a context-inspection audit: environment/library
   versions, metadata columns (age, sex, race, lifestyle, batch), and unit
   consistency.
+- **Scope note:** this micro-task rule governs code YOU write and execute
+  directly. It does not require halting mid-execution inside a vetted
+  external pipeline (see CellExpress section below) — approval there gates
+  the decisions going into a run, not each internal step of the run itself.
 
 ## Schema conventions
 
@@ -54,3 +58,47 @@ SenCat (senescence catalog with ML-derived gene weights) is a SCORING layer,
 not a preprocessing step. Watch for potential label leakage if
 senescence-associated genes overlap with the biological-age ground-truth
 labels — flag this explicitly if it comes up, do not silently proceed.
+
+## CellExpress orchestration (scRNA-seq)
+
+For scRNA-seq QC, normalization, clustering, and annotation, orchestrate
+[CellExpress](https://github.com/AstraZeneca/cellatria/tree/main/cellexpress)
+as a vetted external pipeline rather than writing raw Scanpy code for these
+stages. Do not reimplement CellExpress's internal logic — call it as a tool.
+
+**Invocation:** always use the wrapper at
+`/Users/marikaclark/dark_matter_atx/run_cellexpress.py` — never call
+CellExpress's `main.py` directly via bash. The wrapper builds the config,
+invokes the pipeline, and summarizes outputs; it does not run any
+scRNA-seq logic itself.
+
+**Workflow:**
+1. Build the required input layout: a `metadata.csv` with a `sample` column
+   matching subfolder names exactly, one subfolder per sample.
+2. First pass: run the wrapper with `--only-qc` to get QC metrics without
+   committing to thresholds. Report the metrics — do not proceed past this
+   without approval.
+3. Propose QC thresholds (`--min-umi-per-cell`, `--max-mt-percent`, etc.)
+   and any batch correction / annotation method choice, with reasoning.
+   Run the wrapper with `--dry-run` to produce and display the config for
+   review. **Halt and wait for explicit approval before dropping
+   `--dry-run`** — these are scientific judgment calls, same standard as
+   any other analysis decision in this project.
+4. Once approved, re-run the same command without `--dry-run` to execute
+   the real pipeline run.
+5. The wrapper automatically summarizes outputs after a run (cluster
+   counts, annotation coverage, QC attrition) — report that summary before
+   considering the stage done. A run finishing without error is not the
+   same as a run being correct; use the summary to sanity-check it the
+   same way you would your own code.
+
+**What does NOT need a halt:** CellExpress's internal execution (its own QC,
+normalization, clustering, DE steps) — that's audited, published code, not
+something you're authoring. Treat a CellExpress run itself as one unit of
+work, gated at the decisions above, not at every step inside it.
+
+**Reproducibility note:** the CellAtria/CellExpress Docker environment does
+not pin dependency versions and its container runs as root. If building the
+environment yourself rather than pulling the tagged image as-is, freeze a
+`requirements.txt`/conda lock from the first working build before relying
+on it for thesis results.

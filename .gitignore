@@ -3,3 +3,10 @@ __crisprbrain.sqlite
 
 # Secrets — never commit
 .env
+
+# Raw 10X matrices — large; re-obtain from GEO GSE206283 (do not commit)
+data/Giroux_2022/GSE206283_scRNA_RAW/samples/GSM*/
+# CellExpress HTML report — regenerable, large
+data/Giroux_2022/GSE206283_scRNA_RAW/samples/outputs/
+# macOS cruft
+.DS_Store

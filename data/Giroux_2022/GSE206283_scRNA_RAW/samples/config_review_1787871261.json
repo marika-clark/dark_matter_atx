@@ -1,0 +1,8 @@
+{
+  "input": "/Users/marikaclark/dark_matter_atx/data/Giroux_2022/GSE206283_scRNA_RAW/samples",
+  "project": "GSE206283_giroux_scRNA",
+  "species": "hs",
+  "tissue": "PBMC",
+  "disease": "covid19",
+  "only_qc": "yes"
+}

@@ -1,0 +1,5 @@
+partition,CD3D_meanExpr,CD4_meanExpr,CD8A_meanExpr,MS4A1_meanExpr,CD14_meanExpr,FCGR3A_meanExpr,NCAM1_meanExpr,CD3D_pctPos,CD4_pctPos,CD8A_pctPos,MS4A1_pctPos,CD14_pctPos,FCGR3A_pctPos,NCAM1_pctPos,pct_any_marker_pos
+kept_by_both,1.0906,0.3172,0.5013,0.2395,0.3438,0.414,0.0411,56.89,23.83,25.7,10.23,17.94,21.12,2.95,92.33
+kept_gmm_only,0.4495,0.2941,0.2646,0.1666,0.2937,0.2552,0.0461,21.61,15.2,11.79,6.0,12.15,11.08,2.19,53.74
+kept_static_only,0.5444,0.2451,0.2617,0.1608,0.2021,0.2727,0.0541,22.48,10.67,10.8,5.62,8.2,10.73,2.37,53.07
+removed_by_both,0.3587,0.2278,0.2172,0.1342,0.2937,0.1594,0.0319,14.73,9.88,8.85,4.48,10.85,6.37,1.36,44.09

@@ -10,3 +10,10 @@ data/Giroux_2022/GSE206283_scRNA_RAW/samples/GSM*/
 data/Giroux_2022/GSE206283_scRNA_RAW/samples/outputs/
 # macOS cruft
 .DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Regenerable per-cell benchmark partition dumps (large; rebuild from flags + script)
+data/Giroux_2022/GSE206283_scRNA_RAW/qc_reports/qc_benchmark_cell_partitions*.csv.gz
